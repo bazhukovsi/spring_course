@@ -1,9 +1,11 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component("idSedan")
 public class Sedan implements Car{
+    @Value("${car.model}")
     private String model;
     public Sedan() {
         System.out.println("Это конструктор Sedan");

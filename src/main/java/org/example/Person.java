@@ -2,13 +2,20 @@ package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 @Component("idPerson")
+//@Scope("prototype")
 public class Person {
 //    @Qualifier("idTrack")
 //    @Autowired
     Car car;
+    @Value("${person.name}")
     private String name;
 
     public Person() {
@@ -34,11 +41,12 @@ public class Person {
     public void setName(String name) {
         this.name = name;
     }
-
+    @PostConstruct
     public void init() {
         System.out.println("Init method класса Person");
     }
 
+    @PreDestroy
     public void destroy() {
         System.out.println("Destroy method класса Person");
     }
