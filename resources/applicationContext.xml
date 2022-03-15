@@ -10,14 +10,14 @@
 <!--    <context:property-placeholder location="myApp.properties"/>-->
 
     <!--    <bean id="idSedan"-->
-    <!--          class="org.example.Sedan">-->
+    <!--          class="org.example.spring_example.Sedan">-->
     <!--    </bean>-->
 <!--    <bean id="idCar"-->
-<!--          class="org.example.Sedan">-->
+<!--          class="org.example.spring_example.Sedan">-->
 <!--        <property name="model" value="${car.model}"/>-->
 <!--    </bean>-->
 <!--    <bean id="idPerson"-->
-<!--          class="org.example.Person"-->
+<!--          class="org.example.spring_example.Person"-->
 <!--          scope="prototype"-->
 <!--          init-method="init"-->
 <!--          destroy-method="destroy">-->

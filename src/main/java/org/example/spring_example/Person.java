@@ -1,4 +1,4 @@
-package org.example;
+package org.example.spring_example;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -10,7 +10,7 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 
 @Component("idPerson")
-//@Scope("prototype")
+@Scope("prototype")
 public class Person {
 //    @Qualifier("idTrack")
 //    @Autowired
