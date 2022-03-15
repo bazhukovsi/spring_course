@@ -1,5 +1,8 @@
 package org.example;
 
+import org.springframework.stereotype.Component;
+
+@Component("idPerson")
 public class Person {
     Car car;
     private String name;
@@ -37,6 +40,6 @@ public class Person {
     public void infoPerson() {
         System.out.println("Метод infoPerson класса Person");
         System.out.println("Имя владельца машины - " + this.name);
-        car.info();
+//        car.info();
     }
 }

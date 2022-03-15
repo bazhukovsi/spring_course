@@ -1,5 +1,8 @@
 package org.example;
 
+import org.springframework.stereotype.Component;
+
+@Component("idCar")
 public class Sedan implements Car{
     private String model;
     public Sedan() {
