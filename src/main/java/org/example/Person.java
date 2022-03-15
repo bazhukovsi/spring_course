@@ -1,10 +1,12 @@
 package org.example;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 @Component("idPerson")
 public class Person {
+//    @Qualifier("idTrack")
 //    @Autowired
     Car car;
     private String name;
@@ -13,13 +15,13 @@ public class Person {
         System.out.println("Это конструктор Person");
     }
 
-//    @Autowired
-    public Person(Car car) {
+    @Autowired
+    public Person(@Qualifier("idSedan") Car car) {
         System.out.println("Это конструктор Person с параметром Car");
         this.car = car;
     }
 
-    @Autowired
+//    @Autowired
     public void setCar(Car car) {
         System.out.println("Это сеттер класса Car в классе Person");
         this.car = car;

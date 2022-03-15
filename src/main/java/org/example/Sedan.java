@@ -2,7 +2,7 @@ package org.example;
 
 import org.springframework.stereotype.Component;
 
-@Component("idCar")
+@Component("idSedan")
 public class Sedan implements Car{
     private String model;
     public Sedan() {

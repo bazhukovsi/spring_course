@@ -7,9 +7,7 @@ public class Test2 {
         ClassPathXmlApplicationContext context = new
                 ClassPathXmlApplicationContext("applicationContextAnnotation.xml");
         System.out.println("----------------------------");
-        Car car = context.getBean("idCar", Sedan.class);
         Person person = context.getBean("idPerson", Person.class);
-        car.info();
         person.infoPerson();
         context.close();
     }
