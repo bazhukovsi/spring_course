@@ -7,15 +7,18 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
-
-    <bean id="idSedan"
+    <!--    <bean id="idSedan"-->
+    <!--          class="org.example.Sedan">-->
+    <!--    </bean>-->
+    <bean id="idCar"
           class="org.example.Sedan">
-    </bean>
-    <bean id="idTrack"
-          class="org.example.Track">
+        <property name="model" value="SEAT"/>
     </bean>
     <bean id="idPerson"
           class="org.example.Person">
+<!--        <constructor-arg ref="idCar"/>-->
+        <property name="car" ref="idCar"/>
+        <property name="name" value="Sergey Bazhukov"/>
     </bean>
 
 
