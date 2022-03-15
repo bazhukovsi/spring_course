@@ -8,6 +8,8 @@ public class Test1 {
                 new ClassPathXmlApplicationContext("applicationContext.xml");
         System.out.println("-----------------------------------");
         Person person = context.getBean("idPerson", Person.class);
+        Person person1 = context.getBean("idPerson", Person.class);
+        System.out.println(person == person1);
         person.infoPerson();
         context.close();
     }

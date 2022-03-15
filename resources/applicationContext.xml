@@ -7,18 +7,23 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <context:property-placeholder location="myApp.properties"/>
+
     <!--    <bean id="idSedan"-->
     <!--          class="org.example.Sedan">-->
     <!--    </bean>-->
     <bean id="idCar"
           class="org.example.Sedan">
-        <property name="model" value="SEAT"/>
+        <property name="model" value="${car.model}"/>
     </bean>
     <bean id="idPerson"
-          class="org.example.Person">
-<!--        <constructor-arg ref="idCar"/>-->
+          class="org.example.Person"
+          scope="prototype"
+          init-method="init"
+          destroy-method="destroy">
+        <!--        <constructor-arg ref="idCar"/>-->
         <property name="car" ref="idCar"/>
-        <property name="name" value="Sergey Bazhukov"/>
+        <property name="name" value="${person.name}"/>
     </bean>
 
 

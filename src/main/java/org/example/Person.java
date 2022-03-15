@@ -26,6 +26,14 @@ public class Person {
         this.name = name;
     }
 
+    public void init() {
+        System.out.println("Init method класса Person");
+    }
+
+    public void destroy() {
+        System.out.println("Destroy method класса Person");
+    }
+
     public void infoPerson() {
         System.out.println("Метод infoPerson класса Person");
         System.out.println("Имя владельца машины - " + this.name);
