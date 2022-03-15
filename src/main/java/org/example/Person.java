@@ -1,9 +1,11 @@
 package org.example;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component("idPerson")
 public class Person {
+//    @Autowired
     Car car;
     private String name;
 
@@ -11,11 +13,13 @@ public class Person {
         System.out.println("Это конструктор Person");
     }
 
+//    @Autowired
     public Person(Car car) {
         System.out.println("Это конструктор Person с параметром Car");
         this.car = car;
     }
 
+    @Autowired
     public void setCar(Car car) {
         System.out.println("Это сеттер класса Car в классе Person");
         this.car = car;
@@ -40,6 +44,6 @@ public class Person {
     public void infoPerson() {
         System.out.println("Метод infoPerson класса Person");
         System.out.println("Имя владельца машины - " + this.name);
-//        car.info();
+        car.info();
     }
 }
