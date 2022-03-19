@@ -1,10 +1,11 @@
-package org.example.hibernate_example.entity;
+package org.example.hibernate_example;
 
+import org.example.hibernate_example.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test5 {
+public class Test7 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
@@ -15,18 +16,11 @@ public class Test5 {
 
         try {
             session = factory.getCurrentSession();
-            Employee emp = new Employee("Sasha", "Bazhukova", "Medicine", 1000);
             session.beginTransaction();
-            session.save(emp);
+//            Employee employee = session.get(Employee.class, 2);
+//            employee.setSalary(1200);
+            session.createQuery("update Employee set salary = 1300 where name = 'Masha'").executeUpdate();
             session.getTransaction().commit();
-
-            int myId = emp.getId();
-            session = factory.getCurrentSession();
-            session.beginTransaction();
-            Employee myEmp = session.get(Employee.class, myId);
-            session.getTransaction().commit();
-            System.out.println(myEmp);
-
         } finally {
             factory.close();
             session.close();

@@ -1,14 +1,17 @@
-package org.example.hibernate_example.entity;
+package org.example.hibernate_example;
 
+import org.example.hibernate_example.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test3 {
+import java.util.List;
+
+public class Test6 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Car.class)
+                .addAnnotatedClass(Employee.class)
                 .buildSessionFactory();
 
         Session session = null;
@@ -16,10 +19,13 @@ public class Test3 {
         try {
             session = factory.getCurrentSession();
             session.beginTransaction();
-            Car car = session.get(Car.class, 5);
-            car.setPrice(28000);
-            session.createQuery("update Car set price = 22000 where brand = 'KIA'").executeUpdate();
+            List<Employee> employees = session.createQuery
+                    ("from Employee where salary > 700 and name = 'Sasha'").getResultList();
             session.getTransaction().commit();
+            for (Employee employee :
+                    employees) {
+                System.out.println(employee);
+            }
         } finally {
             factory.close();
             session.close();

@@ -1,5 +1,6 @@
-package org.example.hibernate_example.entity;
+package org.example.hibernate_example;
 
+import org.example.hibernate_example.entity.Car;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

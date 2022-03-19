@@ -1,31 +1,32 @@
-package org.example.hibernate_example.entity;
+package org.example.hibernate_example;
 
+import org.example.hibernate_example.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class Test1 {
+public class Test5 {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
-                .addAnnotatedClass(Car.class)
+                .addAnnotatedClass(Employee.class)
                 .buildSessionFactory();
 
         Session session = null;
 
         try {
             session = factory.getCurrentSession();
-            Car car = new Car("VW", "Tiguan", "Germany", 25000);
+            Employee emp = new Employee("Sasha", "Bazhukova", "Medicine", 1000);
             session.beginTransaction();
-            session.save(car);
+            session.save(emp);
             session.getTransaction().commit();
 
+            int myId = emp.getId();
             session = factory.getCurrentSession();
             session.beginTransaction();
-            int myId = car.getId();
-            Car myCar = session.get(Car.class, 10);
+            Employee myEmp = session.get(Employee.class, myId);
             session.getTransaction().commit();
-            System.out.println(myCar);
+            System.out.println(myEmp);
 
         } finally {
             factory.close();
